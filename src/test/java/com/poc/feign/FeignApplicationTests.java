@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -41,7 +42,7 @@ public class FeignApplicationTests {
 		System.out.println(employees.toString());
 		employees.forEach(employee -> System.out.println("xxx" + employee.toString()));
 
-		assertTrue(employees.size() == 3);
+		assertTrue(employees.size() > 2);
 	}
 
 	@Test
@@ -51,6 +52,15 @@ public class FeignApplicationTests {
 		assertThat(employee.getName(), containsString("Name 1"));
 	}
 
+
+	@Test
+	public void givenEmployeeClient_shouldPostEmployee() throws Exception {
+		Employee employee =  new Employee("toto",121212,"deeeeee");
+		employeeClient.create(employee);
+//		assertEquals(4, employeeClient.findAll().stream()
+//				.map(EmployeeResource::getEmployee)
+//				.collect(Collectors.toList()).size());
+	}
 
 
 }

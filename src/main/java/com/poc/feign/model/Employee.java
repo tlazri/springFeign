@@ -1,7 +1,6 @@
 package com.poc.feign.model;
 
 public class Employee {
-    private String id;
     private String name;
     private Integer salary;
     private String department;
@@ -10,20 +9,12 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String id, String name, Integer salary, String department) {
-        this.id = id;
+    public Employee(String name, Integer salary, String department) {
         this.name = name;
         this.salary = salary;
         this.department = department;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
